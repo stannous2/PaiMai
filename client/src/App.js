@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import styled from 'react-emotion'
 
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import YardSaleListings from "./pages/Yard-Sale-Listings/YardSaleListings"
 import Header from './components/Header'
-import Contact from './pages/Contact/Contact'
+// import Contact from './pages/Contact/Contact'
 import BodyMain from "./components/Body-main/BodyMain";
 import Products from "./pages/Products"
-import UserRegistration from "./pages/User-Registration/UserRegistration"
+// import UserRegistration from "./pages/User-Registration/UserRegistration"
 import YardSaleCreation from "./pages/Yard-Sale-Creation/YardSaleCreation"
 import API from './utils/API'
 import axios from "axios";

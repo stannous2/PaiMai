@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import styled from 'react-emotion';
 import { YardSaleListCard } from "../../components/Yard-Sale-List/index";
 import API from "../../utils/API";
-import collage from '../../images/collage.jpg';
+// import collage from '../../images/collage.jpg';
 import moment from "moment";
-import blur from '../../images/blur.jpg'
+// import blur from '../../images/blur.jpg'
+import { List, ListItem } from "../../components/List"
 
 const BodyWrapper = styled('div')({
     width: '100%',
     minHeight: '100vh',
     alignItems: 'center',
     backgroundSize: 'cover',
-    background: `url("${collage}")`,
+    // background: `url("${collage}")`,
     // opacity: '0.7'
   });
 const YardSaleListingsWrapper = styled('div')({
@@ -23,18 +24,14 @@ const YardSaleListingsWrapper = styled('div')({
 const ListingsWrapper = styled('div')({
     display: "flex",
     justifyContent: "space-around",
-    backgroundColor: "rgba(0, 0, 0, .4)",
-    backgroundImage: `url(${blur})`
+    backgroundColor: "rgba(0, 0, 0, .4)"
 });
 
 const IndividualListingsWrapper = styled('div')({
     flex: 1,
     flexWrap: "wrap",
     boxShadow: "1px 2px 2px 0px grey",
-    padding: 10,
-    // backgroundColor: "rgba(255, 255, 255, .4)",
-
-
+    padding: 10
 });
 
 const SearchButtons = styled('div')({
@@ -66,16 +63,22 @@ class YardSaleListings extends Component {
             <div>
                 
                 <BodyWrapper>
-                <br></br>
-                <YardSaleListingsWrapper>
-                <SearchButtons>
-                    <h3>Find Local Sales: </h3>   
-                </SearchButtons>
-                <SearchButtons><input type="text" name="searchZip" value={this.state.searchZip} onChange={this.handleInput}></input></SearchButtons>
-                <SearchButtons><button onClick={() => this.searchByZip(this.state.searchZip)}>Search By Zip Code</button></SearchButtons>
+                  <br></br>
+                  <YardSaleListingsWrapper>
+                    <SearchButtons>
+                      <h3>Find Local Sales: </h3>   
+                    </SearchButtons>
+                    
+                    <SearchButtons><input type="text" name="searchZip" value={this.state.searchZip} onChange={this.handleInput}></input>
+                    </SearchButtons>
+                    
+                    <SearchButtons>
+                    <button onClick={() => this.searchByZip(this.state.searchZip)}>Search By Zip Code
+                    </button>
+                  </SearchButtons>
                 </YardSaleListingsWrapper>
                 
-                <ListingsWrapper>
+                {/* <ListingsWrapper>
                     <IndividualListingsWrapper>
                         {this.state.yardSales.length ? (
                             this.state.yardSales.map(yardSale => {
@@ -94,7 +97,27 @@ class YardSaleListings extends Component {
                         <h3>No Results to Display</h3>
                         )}
                     </IndividualListingsWrapper>
-                </ListingsWrapper>
+                </ListingsWrapper> */}
+
+                {/* <ListingsWrapper> */}
+                  <IndividualListingsWrapper>
+                    {this.state.yardSales.length ? (
+                      <List>
+                        {this.state.yardSales.map(yardSale => (
+                          <ListItem key={yardSale._id}>
+                            <a href={"/yardsalelistings" + yardSale._id}>
+                              <strong>
+                                {yardSale.name}, {yardSale.address}, {yardSale.zipCode}, {moment(yardSale.date).format('MM-DD-YY h:mm a')}
+                              </strong>
+                            </a>
+                          </ListItem>
+                        ))}
+                      </List>
+                    ) : (
+                          <h3>No Results to Display</h3>
+                        )}
+                    </IndividualListingsWrapper>
+                {/* </ListingsWrapper> */}
 
                 </BodyWrapper>
             </div>

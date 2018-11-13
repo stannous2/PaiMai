@@ -38,21 +38,21 @@ const LogOutButton = styled('button')({
   width: 90,
   padding: '0 0 0 0'
 })
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
+// function getCookie(cname) {
+//   var name = cname + "=";
+//   var decodedCookie = decodeURIComponent(document.cookie);
+//   var ca = decodedCookie.split(';');
+//   for (var i = 0; i < ca.length; i++) {
+//     var c = ca[i];
+//     while (c.charAt(0) == ' ') {
+//       c = c.substring(1);
+//     }
+//     if (c.indexOf(name) == 0) {
+//       return c.substring(name.length, c.length);
+//     }
+//   }
+//   return "";
+// }
 
 class Header extends Component {
   constructor() {
@@ -78,7 +78,7 @@ class Header extends Component {
                 <FormWrapper>
                   <LoginFormItem
                     name="loginEmail"
-                    value={this.state.loginEmail}
+                    value={this.state.email}
                     type="text"
                     placeHolder="Email"
                     onChangeFn={this.props.handleInputChange}
@@ -86,7 +86,7 @@ class Header extends Component {
                   
                   <LoginFormItem
                     name="loginPassword"
-                    value={this.state.loginPassword}
+                    value={this.state.password}
                     type="password"
                     placeHolder="Password"
                     onChangeFn={this.props.handleInputChange}
