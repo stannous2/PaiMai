@@ -2,18 +2,14 @@ import React, { Component } from "react";
 import styled from 'react-emotion';
 import { YardSaleListCard } from "../../components/Yard-Sale-List/index";
 import API from "../../utils/API";
-// import collage from '../../images/collage.jpg';
 import moment from "moment";
-// import blur from '../../images/blur.jpg'
 import { List, ListItem } from "../../components/List"
 
 const BodyWrapper = styled('div')({
     width: '100%',
     minHeight: '100vh',
     alignItems: 'center',
-    backgroundSize: 'cover',
-    // background: `url("${collage}")`,
-    // opacity: '0.7'
+    backgroundSize: 'cover'
   });
 const YardSaleListingsWrapper = styled('div')({
     display: "flex",
@@ -30,8 +26,8 @@ const ListingsWrapper = styled('div')({
 const IndividualListingsWrapper = styled('div')({
     flex: 1,
     flexWrap: "wrap",
-    boxShadow: "1px 2px 2px 0px grey",
-    padding: 10
+    width: '60%',
+    margin: 'auto'
 });
 
 const SearchButtons = styled('div')({
