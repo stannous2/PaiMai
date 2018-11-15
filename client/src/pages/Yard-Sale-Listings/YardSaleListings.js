@@ -4,6 +4,7 @@ import { YardSaleListCard } from "../../components/Yard-Sale-List/index";
 import API from "../../utils/API";
 import moment from "moment";
 import { List, ListItem } from "../../components/List"
+import { DeleteButton, EditButton } from '../../components/FormComponents/FormComponents'
 
 const BodyWrapper = styled('div')({
     width: '100%',
@@ -73,29 +74,6 @@ class YardSaleListings extends Component {
                     </button>
                   </SearchButtons>
                 </YardSaleListingsWrapper>
-                
-                {/* <ListingsWrapper>
-                    <IndividualListingsWrapper>
-                        {this.state.yardSales.length ? (
-                            this.state.yardSales.map(yardSale => {
-                                return (
-                                    <YardSaleListCard key={yardSale._id}
-                                        link = {yardSale._id}
-                                        address = {yardSale.address}
-                                        zipCode = {yardSale.zipCode}
-                                        date = {moment(yardSale.date).format('MM-DD-YY h:mm a')}
-                                        name = {yardSale.name}
-                                    />
-                                );
-                            })
-
-                        ) : (
-                        <h3>No Results to Display</h3>
-                        )}
-                    </IndividualListingsWrapper>
-                </ListingsWrapper> */}
-
-                {/* <ListingsWrapper> */}
                   <IndividualListingsWrapper>
                     {this.state.yardSales.length ? (
                       <List>
@@ -106,15 +84,19 @@ class YardSaleListings extends Component {
                                 {yardSale.name}, {yardSale.address}, {yardSale.zipCode}, {moment(yardSale.date).format('MM-DD-YY h:mm a')}
                               </strong>
                             </a>
+
+                            <DeleteButton onClick={() => this.searchByZip(this.state.searchZip)}>Delete
+                            </DeleteButton>
+
+                            <EditButton onClick={() => this.searchByZip(this.state.searchZip)}>Edit
+                            </EditButton>
                           </ListItem>
                         ))}
                       </List>
                     ) : (
                           <h3>No Results to Display</h3>
                         )}
-                    </IndividualListingsWrapper>
-                {/* </ListingsWrapper> */}
-
+                    </IndividualListingsWrapper>              
                 </BodyWrapper>
             </div>
         );

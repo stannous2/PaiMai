@@ -79,6 +79,26 @@ export const SubmitButton = styled('button')({
   height: 32
 })
 
+export const DeleteButton = styled('button')({
+  background: "red",
+  color: 'white',
+  height: 25,
+  width: 60,
+  fontSize: 12,
+  float: 'right',
+  padding: '0 0 0 0'
+})
+
+export const EditButton = styled('button')({
+  background: "#283e4a",
+  color: 'white',
+  height: 25,
+  width: 60,
+  fontSize: 12,
+  float: 'right',
+  padding: '0 0 0 0'
+})
+
 export const FormTextInput = ({ label, name, value, type, placeHolder, onChangeFn }) => {
   return (
     <div>
