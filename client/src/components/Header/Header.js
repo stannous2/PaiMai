@@ -55,7 +55,7 @@ class Header extends Component {
           <Link to="/">Home</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/yardsalelistings">Yard Sales</Link>
-          <Link to="/yardsalecreation">Sell Your Stuff</Link>
+          <Link to="/yardsalecreationpage">Sell Your Stuff</Link>
           
             {
               this.props.showLoginForm ?

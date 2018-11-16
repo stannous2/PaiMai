@@ -86,7 +86,8 @@ export const DeleteButton = styled('button')({
   width: 60,
   fontSize: 12,
   float: 'right',
-  padding: '0 0 0 0'
+  padding: '0 0 0 0',
+  marginLeft: '4px'
 })
 
 export const EditButton = styled('button')({
