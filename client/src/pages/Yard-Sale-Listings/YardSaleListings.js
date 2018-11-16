@@ -35,6 +35,12 @@ const SearchButtons = styled('div')({
     margin: 10
 })
 
+const aTagStyle = {
+  float: "left",
+  color: 'black',
+  marginTop: 5
+}
+
 class YardSaleListings extends Component {
 
     state = {
@@ -79,10 +85,11 @@ class YardSaleListings extends Component {
                       <List>
                         {this.state.yardSales.map(yardSale => (
                           <ListItem key={yardSale._id}>
-                            <a href={"/yardsalelistings" + yardSale._id}>
+                            <a style={aTagStyle} href={"/yardsalelistings" + yardSale._id}>
                               <strong>
-                                {yardSale.name}, {yardSale.address}, {yardSale.zipCode}, {moment(yardSale.date).format('MM-DD-YY h:mm a')}
+                                {yardSale.name} 
                               </strong>
+                                , {yardSale.address}, {yardSale.zipCode}, {moment(yardSale.date).format('MM-DD-YY')} 
                             </a>
 
                             <DeleteButton onClick={() => this.searchByZip(this.state.searchZip)}>Delete

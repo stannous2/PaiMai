@@ -2,14 +2,14 @@ import React from "react";
 import styled from 'react-emotion';
 // import "./List.css";
 
-const li = styled('div')({
+const liStyle = {
   fontSize: 12,
-  textAlign: 'left',
-  background: ''
-})
+  backgroundColor: 'whitesmoke',
+  
+}
 
 export const ListItem = props => (
-  <li className="list-group-item" background-color='whitesmoke'>
+  <li className="list-group-item" style={liStyle}>
     {props.children}
   </li>
 );

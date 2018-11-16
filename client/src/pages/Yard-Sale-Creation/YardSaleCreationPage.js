@@ -63,7 +63,7 @@ const resultsDisplay = {
     color: 'white',
   }
 
-class YardSaleCreation extends Component {
+class YardSaleCreationPage extends Component {
     state = {
         displayProducts: false,
         address: "Street, City, State",
@@ -342,4 +342,4 @@ class YardSaleCreation extends Component {
     }
 }
 
-export default YardSaleCreation;
+export default YardSaleCreationPage;

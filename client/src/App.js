@@ -9,7 +9,7 @@ import Header from './components/Header'
 import BodyMain from "./components/Body-main/BodyMain";
 import Products from "./pages/Products"
 // import UserRegistration from "./pages/User-Registration/UserRegistration"
-import YardSaleCreation from "./pages/Yard-Sale-Creation/YardSaleCreation"
+import YardSaleCreationPage from "./pages/Yard-Sale-Creation/YardSaleCreationPage"
 import API from './utils/API'
 import axios from "axios";
 
@@ -164,7 +164,7 @@ class App extends Component {
 
               <Route exact path="/yardsalelistings" component={YardSaleListings} />
               <Route path="/products/*" component={Products} />
-              <Route path="/yardsalecreation" render={() => <YardSaleCreation id={this.state.id} />}/>
+              <Route path="/YardSaleCreationPage" render={() => <YardSaleCreationPage id={this.state.id} />}/>
             </Switch>
           </Content>
         </div>
