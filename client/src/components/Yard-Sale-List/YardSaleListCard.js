@@ -14,24 +14,45 @@ const BodyWrapper = styled('div')({
   });
 
   const Wrapper = styled('div')({
-    display: "inline-table",
-    margin: 10,
+    // display: "inline-table",
+    margin: '5px',
     boxShadow: "1px 2px 2px 0px grey",
-    padding: 10,
+    paddingTop: '5px',
     color: "black",
-    background: '#f6f8fa'
+    background: 'slategray',
+    borderRadius: '2px',
+    height: '170px',
+    width: '190px',
+    boxShadow: '0 3px 6px #999, 0 3px 6px #999'
 })
 
-export const YardSaleListCard = ({ address, zipCode, date, name, link }) => {
-    return (
-        <BodyWrapper>
-        <Wrapper>
-            <Link className="link" to={"/products/" + link}>
-            <h4><p>{name}</p></h4>
-            <p>Address: {address} {zipCode}</p>
-            <p>Date Posted: {date}</p>
-            </Link>
-        </Wrapper>
-        </BodyWrapper>
-    )
+const linkStyle = {
+  float: 'left',
 }
+
+export const YardSaleListCard = ({ address, zipCode, date, name, link }) => {
+  return (
+      <Wrapper>
+          <Link className="link" to={"/products/" + link}>
+          <h5>{name}</h5>
+          <p>Address: {address}</p>
+          <p>Zip: {zipCode}</p>
+          <p>Date: {date}</p>
+          </Link>
+      </Wrapper>
+  )
+}
+
+// export const YardSaleListCard = ({ address, zipCode, date, name, link }) => {
+//     return (
+//         <BodyWrapper>
+//         <Wrapper>
+//             <Link className="link" to={"/products/" + link}>
+//             <h4><p>{name}</p></h4>
+//             <p>Address: {address} {zipCode}</p>
+//             <p>Date Posted: {date}</p>
+//             </Link>
+//         </Wrapper>
+//         </BodyWrapper>
+//     )
+// }

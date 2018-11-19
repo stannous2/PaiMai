@@ -20,14 +20,10 @@ const YardSaleListingsWrapper = styled('div')({
 
 const ListingsWrapper = styled('div')({
     display: "flex",
-    justifyContent: "space-around",
-    backgroundColor: "rgba(0, 0, 0, .4)"
-});
-
-const IndividualListingsWrapper = styled('div')({
-    flex: 1,
-    flexWrap: "wrap",
-    width: '60%',
+    flexWrap: 'wrap',
+    justifyContent: "initial",
+    backgroundColor: "white",
+    width: '70%',
     margin: 'auto'
 });
 
@@ -35,10 +31,9 @@ const SearchButtons = styled('div')({
     margin: 10
 })
 
-const aTagStyle = {
-  float: "left",
+const h3Style = {
   color: 'black',
-  marginTop: 5
+  margin: 'auto'
 }
 
 class YardSaleListings extends Component {
@@ -80,30 +75,27 @@ class YardSaleListings extends Component {
                     </button>
                   </SearchButtons>
                 </YardSaleListingsWrapper>
-                  <IndividualListingsWrapper>
-                    {this.state.yardSales.length ? (
-                      <List>
-                        {this.state.yardSales.map(yardSale => (
-                          <ListItem key={yardSale._id}>
-                            <a style={aTagStyle} href={"/yardsalelistings" + yardSale._id}>
-                              <strong>
-                                {yardSale.name} 
-                              </strong>
-                                , {yardSale.address}, {yardSale.zipCode}, {moment(yardSale.date).format('MM-DD-YY')} 
-                            </a>
 
-                            <DeleteButton onClick={() => this.searchByZip(this.state.searchZip)}>Delete
-                            </DeleteButton>
+                  <ListingsWrapper>
+                          {this.state.yardSales.length ? (
+                              this.state.yardSales.map(yardSale => {
+                                  return (
+                                      <YardSaleListCard key={yardSale._id}
+                                          link = {yardSale._id}
+                                          address = {yardSale.address}
+                                          zipCode = {yardSale.zipCode}
+                                          date = {moment(yardSale.date).format('MM-DD-YY')}
+                                          name = {yardSale.name}
+                                      />
+                                  );
+                              })
 
-                            <EditButton onClick={() => this.searchByZip(this.state.searchZip)}>Edit
-                            </EditButton>
-                          </ListItem>
-                        ))}
-                      </List>
-                    ) : (
-                          <h3>No Results to Display</h3>
-                        )}
-                    </IndividualListingsWrapper>              
+                          ) : (
+                          <div style={h3Style}>
+                            <h3>No Results to Display</h3>
+                          </div>
+                          )}
+                  </ListingsWrapper>
                 </BodyWrapper>
             </div>
         );
